@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <!-- Epic cyberpunk cityscape for main menu -->
+  <defs>
+    <linearGradient id="menuSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#1a0f2e;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#2a1a4f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f0a42;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="cityGlow" cx="50%" cy="70%">
+      <stop offset="0%" style="stop-color:#ffdf00;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#ff003c;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#0a0e1a;stop-opacity:0" />
+    </radialGradient>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1920" height="1080" fill="url(#menuSky)"/>
+  <circle cx="960" cy="756" r="700" fill="url(#cityGlow)"/>
+  
+  <!-- Stars -->
+  <circle cx="150" cy="100" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="300" cy="80" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="500" cy="150" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="700" cy="90" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="900" cy="120" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1100" cy="70" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1300" cy="140" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="1500" cy="100" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="1700" cy="110" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="400" cy="200" r="1" fill="#ffffff" opacity="0.5"/>
+  <circle cx="1200" cy="180" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1800" cy="160" r="2" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Distant city skyline (background layer) -->
+  <path d="M 0,850 L 150,800 L 200,820 L 300,780 L 400,810 L 550,750 L 700,790 L 850,770 L 1000,800 L 1150,760 L 1300,790 L 1450,770 L 1600,810 L 1750,780 L 1850,800 L 1920,790 L 1920,1080 L 0,1080 Z" 
+        fill="#0a0415" opacity="0.5"/>
+  
+  <!-- Mid-ground city (more detailed) -->
+  <path d="M 0,900 L 100,880 L 150,860 L 250,840 L 350,880 L 450,820 L 600,860 L 750,830 L 900,870 L 1050,820 L 1200,860 L 1350,840 L 1500,880 L 1650,850 L 1800,870 L 1920,860 L 1920,1080 L 0,1080 Z" 
+        fill="#1a0f2e" opacity="0.7"/>
+  
+  <!-- Foreground buildings with detailed windows -->
+  <!-- Left tower -->
+  <rect x="100" y="600" width="120" height="480" fill="#0a0415" opacity="0.9"/>
+  <rect x="110" y="650" width="25" height="35" fill="#ffdf00" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="145" y="650" width="25" height="35" fill="#00f0ff" opacity="0.7" filter="url(#neonGlow)"/>
+  <rect x="180" y="650" width="25" height="35" fill="#ff003c" opacity="0.6"/>
+  <rect x="110" y="720" width="25" height="35" fill="#00f0ff" opacity="0.7"/>
+  <rect x="145" y="720" width="25" height="35" fill="#ffdf00" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="180" y="720" width="25" height="35" fill="#ff003c" opacity="0.7" filter="url(#neonGlow)"/>
+  <rect x="110" y="790" width="25" height="35" fill="#ff003c" opacity="0.6"/>
+  <rect x="145" y="790" width="25" height="35" fill="#00f0ff" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="180" y="790" width="25" height="35" fill="#ffdf00" opacity="0.7"/>
+  
+  <!-- Center tower (tallest) -->
+  <rect x="800" y="400" width="150" height="680" fill="#0a0415" opacity="0.95"/>
+  <rect x="815" y="450" width="30" height="40" fill="#ffdf00" opacity="0.9" filter="url(#neonGlow)"/>
+  <rect x="855" y="450" width="30" height="40" fill="#00f0ff" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="895" y="450" width="30" height="40" fill="#ff003c" opacity="0.7" filter="url(#neonGlow)"/>
+  <rect x="815" y="530" width="30" height="40" fill="#00f0ff" opacity="0.8"/>
+  <rect x="855" y="530" width="30" height="40" fill="#ff003c" opacity="0.9" filter="url(#neonGlow)"/>
+  <rect x="895" y="530" width="30" height="40" fill="#ffdf00" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="815" y="610" width="30" height="40" fill="#ff003c" opacity="0.7"/>
+  <rect x="855" y="610" width="30" height="40" fill="#ffdf00" opacity="0.9" filter="url(#neonGlow)"/>
+  <rect x="895" y="610" width="30" height="40" fill="#00f0ff" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="815" y="690" width="30" height="40" fill="#ffdf00" opacity="0.8"/>
+  <rect x="855" y="690" width="30" height="40" fill="#00f0ff" opacity="0.9" filter="url(#neonGlow)"/>
+  <rect x="895" y="690" width="30" height="40" fill="#ff003c" opacity="0.8" filter="url(#neonGlow)"/>
+  
+  <!-- Right tower -->
+  <rect x="1600" y="650" width="130" height="430" fill="#0a0415" opacity="0.9"/>
+  <rect x="1615" y="700" width="28" height="38" fill="#00f0ff" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="1655" y="700" width="28" height="38" fill="#ffdf00" opacity="0.9" filter="url(#neonGlow)"/>
+  <rect x="1690" y="700" width="28" height="38" fill="#ff003c" opacity="0.7" filter="url(#neonGlow)"/>
+  <rect x="1615" y="775" width="28" height="38" fill="#ff003c" opacity="0.8" filter="url(#neonGlow)"/>
+  <rect x="1655" y="775" width="28" height="38" fill="#00f0ff" opacity="0.9" filter="url(#neonGlow)"/>
+  <rect x="1690" y="775" width="28" height="38" fill="#ffdf00" opacity="0.7"/>
+  
+  <!-- Animated neon signs -->
+  <rect x="850" y="350" width="50" height="8" fill="#ffdf00" opacity="0.9" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="130" y="550" width="40" height="6" fill="#00f0ff" opacity="0.8" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="1640" y="600" width="45" height="7" fill="#ff003c" opacity="0.9" filter="url(#neonGlow)">
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Floating light particles -->
+  <circle cx="400" cy="700" r="4" fill="#ffdf00" opacity="0.7" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="700;600;700" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1200" cy="750" r="3.5" fill="#00f0ff" opacity="0.6" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="750;650;750" dur="7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1500" cy="800" r="4" fill="#ff003c" opacity="0.8" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="800;700;800" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="600" cy="650" r="3" fill="#00f0ff" opacity="0.7" filter="url(#neonGlow)">
+    <animate attributeName="cy" values="650;550;650" dur="6.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="6.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Ground fog/haze -->
+  <ellipse cx="960" cy="1050" rx="900" ry="50" fill="#ffdf00" opacity="0.1"/>
+  <ellipse cx="960" cy="1070" rx="950" ry="40" fill="#ff003c" opacity="0.08"/>
+</svg>
+

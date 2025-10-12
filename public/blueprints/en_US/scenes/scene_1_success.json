@@ -1,0 +1,19 @@
+{
+  "id": "scene_1_success",
+  "title": "The Revelation",
+  "view": {
+    "default": { "uri": "/assets/backgrounds/scene_1_success_default.svg" }
+  },
+  "prompt": "Riley has decided to trust you. They lean in closer, their voice dropping to a whisper. 'What I'm about to tell you will change everything you thought you knew,' they say. Riley is now ready to reveal important information about the situation. They want to gauge your reaction and see if you can handle the truth.",
+  "characters": ["mc", "riley"],
+  "intro": "Riley nods slowly, a serious expression crossing their face. 'Alright... I think you're ready for the truth.'",
+  "goals": [
+    {
+      "id": "learn_the_truth",
+      "character_id": "riley",
+      "description": "Share the crucial information with the player and ensure they understand the gravity of the situation",
+      "on_complete": { "transition_to": "scene_2" }
+    }
+  ]
+}
+

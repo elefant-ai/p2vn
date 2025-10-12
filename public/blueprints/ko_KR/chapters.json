@@ -1,0 +1,9 @@
+[
+  {
+    "id": "chapter_1",
+    "title": "제1장: 시작",
+    "intro": "당신의 여정이 여기서 시작된다...",
+    "scenes": ["scene_1", "scene_1_success", "scene_2"]
+  }
+]
+

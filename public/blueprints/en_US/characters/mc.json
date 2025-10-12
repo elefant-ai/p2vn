@@ -1,0 +1,17 @@
+{
+  "id": "mc",
+  "name": "Alex",
+  "role": "player",
+  "introduction": "Hey, I'm Alex. I never thought I'd end up in a situation like this. I'm just a regular person trying to make sense of what's happening. I believe in facing things head-on and asking the hard questions. Whatever comes next, I'm ready to find the truth.",
+  "view": {
+    "default": { "uri": "/assets/characters/mc_default.svg" }
+  },
+  "identity": {
+    "personality": "Curious and determined",
+    "background": "A regular person thrust into extraordinary circumstances",
+    "speaking_style": "Direct and pragmatic"
+  },
+  "voice": { "gender": "neutral" },
+  "inventory": []
+}
+

@@ -1,0 +1,17 @@
+{
+  "id": "riley",
+  "name": "Riley",
+  "role": "npc",
+  "introduction": "The name's Riley. I've been around long enough to know when something's off. I've seen things... things that would make most people run. But not you, apparently. You've got questions, and maybe I've got some answers. If you can keep up.",
+  "view": {
+    "default": { "uri": "/assets/characters/riley_default.svg" }
+  },
+  "identity": {
+    "personality": "Mysterious and knowledgeable",
+    "background": "Has information about the situation",
+    "speaking_style": "Cryptic but helpful"
+  },
+  "voice": { "gender": "neutral" },
+  "inventory": []
+}
+

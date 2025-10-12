@@ -1,0 +1,19 @@
+{
+  "id": "scene_1",
+  "title": "첫 만남",
+  "view": {
+    "default": { "uri": "/assets/backgrounds/scene_1_default.svg" }
+  },
+  "prompt": "당신은 당신의 상황에 대해 뭔가 알고 있는 것 같은 신비한 낯선 사람을 만난다.",
+  "characters": ["mc", "riley"],
+  "intro": "희미한 빛 속에서 한 인물이 당신에게 다가온다...",
+  "goals": [
+    {
+      "id": "befriend_riley",
+      "character_id": "riley",
+      "description": "플레이어와 신뢰를 쌓는다",
+      "on_complete": { "transition_to": "scene_1_success" }
+    }
+  ]
+}
+

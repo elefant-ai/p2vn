@@ -1,0 +1,19 @@
+{
+  "id": "scene_1",
+  "title": "First Encounter",
+  "view": {
+    "default": { "uri": "/assets/backgrounds/scene_1_default.svg" }
+  },
+  "prompt": "You meet a mysterious stranger who seems to know something about your situation.",
+  "characters": ["mc", "riley"],
+  "intro": "A figure approaches you in the dim light...",
+  "goals": [
+    {
+      "id": "befriend_riley",
+      "character_id": "riley",
+      "description": "Establish trust with the player",
+      "on_complete": { "transition_to": "scene_1_success" }
+    }
+  ]
+}
+

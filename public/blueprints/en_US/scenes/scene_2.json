@@ -1,0 +1,20 @@
+{
+  "id": "scene_2",
+  "title": "A New Beginning",
+  "view": {
+    "default": { "uri": "/assets/backgrounds/scene_2_default.svg" }
+  },
+  "prompt": "You now know the truth. Riley watches you carefully, waiting to see what you'll do with this knowledge. The weight of the revelation sits heavy between you both. This is a crucial moment - your response will determine what happens next. Riley is supportive but needs to know you're ready to move forward.",
+  "characters": ["mc", "riley"],
+  "intro": "The silence stretches between you as the truth sinks in. Everything has changed.",
+  "goals": [
+    {
+      "id": "accept_the_truth",
+      "character_id": "riley",
+      "description": "Help the player come to terms with the revelation and decide their next steps. Ensure they feel empowered despite the difficult truth.",
+      "on_complete": {}
+    }
+  ],
+  "outro": "Riley nods with respect. 'You handled that better than most. I think we're going to make a good team.' The journey has just begun... [End of Demo]"
+}
+

@@ -1,0 +1,27 @@
+{
+  "id": "default",
+  "name": "Default Theme",
+  "colors": {
+    "primary": "#3B82F6",
+    "secondary": "#8B5CF6",
+    "background": "#111827",
+    "text": "#F9FAFB",
+    "accent": "#06B6D4",
+    "border": "#3B82F6",
+    "shadow": "#000000",
+    "success": "#10B981",
+    "error": "#EF4444",
+    "character_player": "#06B6D4",
+    "character_npc": "#8B5CF6"
+  },
+  "fonts": {
+    "heading": "system-ui, sans-serif",
+    "body": "system-ui, sans-serif",
+    "dialogue": "Georgia, serif"
+  },
+  "transitions": {
+    "scene_fade_duration": 500,
+    "text_speed": 50
+  }
+}
+

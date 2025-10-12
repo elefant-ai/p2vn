@@ -1,0 +1,34 @@
+{
+  "id": "cyberpunk_2077",
+  "name": "Cyberpunk 2077",
+  "colors": {
+    "primary": "#FFDF00",
+    "secondary": "#00F0FF",
+    "background": "#0A0E1A",
+    "text": "#E0E0E0",
+    "accent": "#FF003C",
+    "border": "#FFDF00",
+    "shadow": "#FF003C",
+    "success": "#00FF9F",
+    "error": "#FF003C",
+    "character_player": "#00F0FF",
+    "character_npc": "#FFDF00"
+  },
+  "fonts": {
+    "heading": "'Orbitron', sans-serif",
+    "body": "'Rajdhani', sans-serif",
+    "dialogue": "'Rajdhani', sans-serif"
+  },
+  "transitions": {
+    "scene_fade_duration": 400,
+    "text_speed": 25
+  },
+  "ui": {
+    "border_width": "2px",
+    "border_style": "solid",
+    "box_shadow": "0 0 20px var(--color-shadow), inset 0 0 20px rgba(255, 223, 0, 0.1)",
+    "button_transform": "translateY(-2px) scale(1.02)",
+    "button_shadow_hover": "0 0 25px var(--color-primary), 0 6px 20px rgba(0, 0, 0, 0.5)"
+  }
+}
+

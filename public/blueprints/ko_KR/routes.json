@@ -1,0 +1,10 @@
+[
+  {
+    "id": "main_route",
+    "title": "메인 스토리",
+    "description": "주요 서사",
+    "chapters": ["chapter_1"],
+    "starting_chapter": "chapter_1"
+  }
+]
+

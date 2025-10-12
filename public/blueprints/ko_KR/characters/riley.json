@@ -1,0 +1,17 @@
+{
+  "id": "riley",
+  "name": "라일리",
+  "role": "npc",
+  "introduction": "이름은 라일리야. 나는 뭔가 잘못되었을 때를 알 수 있을 만큼 오래 살아왔지. 내가 본 것들... 대부분의 사람들이 도망칠 만한 것들이지. 하지만 넌 그렇지 않은 것 같아. 넌 질문이 있고, 아마도 나한테 몇 가지 답이 있을 거야. 따라올 수 있다면 말이야.",
+  "view": {
+    "default": { "uri": "/assets/characters/riley_default.svg" }
+  },
+  "identity": {
+    "personality": "신비롭고 박식함",
+    "background": "상황에 대한 정보를 가지고 있음",
+    "speaking_style": "수수께끼 같지만 도움이 됨"
+  },
+  "voice": { "gender": "neutral" },
+  "inventory": []
+}
+

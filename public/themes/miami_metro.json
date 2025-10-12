@@ -1,0 +1,33 @@
+{
+  "id": "miami_metro",
+  "name": "Miami Metro",
+  "colors": {
+    "primary": "#FF006E",
+    "secondary": "#00F5FF",
+    "background": "#0A0E27",
+    "text": "#FFFFFF",
+    "accent": "#FFBE0B",
+    "border": "#FF006E",
+    "shadow": "#8338EC",
+    "success": "#06FFA5",
+    "error": "#FF006E",
+    "character_player": "#00F5FF",
+    "character_npc": "#FF006E"
+  },
+  "fonts": {
+    "heading": "'Press Start 2P', cursive",
+    "body": "'VT323', monospace",
+    "dialogue": "'VT323', monospace"
+  },
+  "transitions": {
+    "scene_fade_duration": 300,
+    "text_speed": 30
+  },
+  "ui": {
+    "border_width": "4px",
+    "border_style": "solid",
+    "box_shadow": "8px 8px 0px",
+    "button_transform": "translate(-4px, -4px)",
+    "button_shadow_hover": "4px 4px 0px"
+  }
+}

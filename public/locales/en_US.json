@@ -1,0 +1,21 @@
+{
+  "ui": {
+    "continue": "Continue...",
+    "send": "Send",
+    "thinking": "Thinking...",
+    "input_placeholder": "Type your response...",
+    "close": "Close",
+    "new_game": "New Game",
+    "continue_game": "Continue",
+    "settings": "Settings",
+    "press_enter": "Press Enter to continue...",
+    "dossier": {
+      "title": "Dossier",
+      "objectives": "Objectives",
+      "notes": "Notes",
+      "no_objectives": "No objectives yet",
+      "no_notes": "No notes yet"
+    }
+  }
+}
+

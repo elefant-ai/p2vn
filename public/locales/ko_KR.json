@@ -1,0 +1,21 @@
+{
+  "ui": {
+    "continue": "계속...",
+    "send": "전송",
+    "thinking": "생각하는 중...",
+    "input_placeholder": "답변을 입력하세요...",
+    "close": "닫기",
+    "new_game": "새 게임",
+    "continue_game": "계속하기",
+    "settings": "설정",
+    "press_enter": "계속하려면 Enter를 누르세요...",
+    "dossier": {
+      "title": "서류철",
+      "objectives": "목표",
+      "notes": "메모",
+      "no_objectives": "아직 목표가 없습니다",
+      "no_notes": "아직 메모가 없습니다"
+    }
+  }
+}
+

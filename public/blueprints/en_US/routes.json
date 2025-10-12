@@ -1,0 +1,10 @@
+[
+  {
+    "id": "main_route",
+    "title": "Main Story",
+    "description": "The primary narrative",
+    "chapters": ["chapter_1"],
+    "starting_chapter": "chapter_1"
+  }
+]
+

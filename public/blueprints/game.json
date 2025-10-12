@@ -1,0 +1,16 @@
+{
+  "id": "example_game",
+  "title": "My Visual Novel",
+  "version": "1.0.0",
+  "description": "An AI-driven story adventure",
+  "authors": ["Your Name"],
+  "player_character_id": "mc",
+  "routes": ["main_route"],
+  "starting_route": "main_route",
+  "main_menu_image": {
+    "uri": "/assets/backgrounds/main_menu.svg"
+  },
+  "theme": "cyberpunk_2077"
+}
+
+

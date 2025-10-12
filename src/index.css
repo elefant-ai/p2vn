@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Critical positioning utilities - ensure they're always available */
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.top-0 {
+  top: 0;
+}
+.top-4 {
+  top: 1rem;
+}
+.right-0 {
+  right: 0;
+}
+.right-4 {
+  right: 1rem;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.bottom-32 {
+  bottom: 8rem;
+}
+.left-0 {
+  left: 0;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+.bg-black {
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.pb-32 {
+  padding-bottom: 8rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.gap-6 {
+  gap: 1.5rem;
+}
+.gap-8 {
+  gap: 2rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+.max-w-3xl {
+  max-width: 48rem;
+}
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+.text-base {
+  font-size: 1rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+.w-12 {
+  width: 3rem;
+}
+
+.h-\[400px\] {
+  height: 400px;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:p-8 {
+    padding: 2rem;
+  }
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .md\:text-base {
+    font-size: 1rem;
+  }
+  .md\:text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+body {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: var(--font-size-base, 16px);
+  color: var(--color-text, #ffffff);
+  background-color: var(--color-background, #111827);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.vn-heading {
+  font-family: var(--font-heading, system-ui, sans-serif);
+  line-height: 1.6;
+}
+
+.vn-text {
+  font-family: var(--font-body, system-ui, sans-serif);
+  line-height: 1.4;
+}
+
+.vn-box {
+  border: var(--border-width, 2px) var(--border-style, solid)
+    var(--dialog-character-color, var(--color-border, currentColor));
+  box-shadow: var(--box-shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
+  background: var(--box-background, var(--color-background));
+}
+
+.vn-button {
+  font-family: var(--font-heading, system-ui, sans-serif);
+  font-size: var(--font-size-button, 14px);
+  padding: var(--button-padding, 12px 24px);
+  border: var(--button-border-width, 2px) solid var(--color-border, currentColor);
+  background: var(--button-background, var(--color-primary));
+  color: var(--button-text-color, white);
+  box-shadow: var(--button-shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.vn-button:hover {
+  transform: var(--button-hover-transform, translateY(-2px));
+  box-shadow: var(--button-shadow-hover, 0 6px 12px rgba(0, 0, 0, 0.15));
+}
+
+.vn-button:active {
+  transform: var(--button-active-transform, translateY(0));
+  box-shadow: var(--button-shadow-active, 0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.vn-button-secondary {
+  background: var(--button-secondary-background, transparent);
+  border-color: var(--color-secondary, currentColor);
+  color: var(--color-secondary, currentColor);
+}
+
+.vn-button-accent {
+  background: var(--button-accent-background, transparent);
+  border-color: var(--color-accent, currentColor);
+  color: var(--color-accent, currentColor);
+}
+
+.vn-screen {
+  /* position is set via Tailwind classes (fixed/relative) in components */
+  background: var(--color-background, #111827);
+  min-height: 100vh;
+}
+
+.vn-input {
+  font-family: var(--font-body, system-ui, sans-serif);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: var(--input-border-width, 2px) solid var(--color-secondary);
+  padding: var(--input-padding, 12px 16px);
+  transition: border-color 0.2s ease;
+}
+
+.vn-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.vn-menu {
+  background: var(--menu-background, var(--color-background));
+  border: var(--border-width, 2px) var(--border-style, solid) var(--color-border, currentColor);
+  box-shadow: var(--menu-shadow, 0 10px 25px rgba(0, 0, 0, 0.5));
+  backdrop-filter: blur(var(--menu-blur, 10px));
+}
+
+.vn-divider {
+  border-color: var(--color-border);
+  opacity: var(--divider-opacity, 0.3);
+}
+
+.vn-hamburger-line {
+  background-color: var(--hamburger-line-color, var(--color-text));
+  height: var(--hamburger-line-height, 2px);
+  transition: all 0.3s ease;
+}
+
+.vn-overlay {
+  background: var(--overlay-background, rgba(0, 0, 0, 0.8));
+  backdrop-filter: blur(var(--overlay-blur, 4px));
+}
+
+.vn-menu-item {
+  padding: var(--menu-item-padding, 8px 16px);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+}
+
+.vn-menu-item:hover {
+  background: var(--menu-item-hover-bg, rgba(255, 255, 255, 0.1));
+}
+
+.vn-menu-item.active {
+  background: var(--menu-item-active-bg, rgba(255, 223, 0, 0.1));
+  color: var(--color-primary);
+  border-left: 4px solid var(--color-primary);
+}

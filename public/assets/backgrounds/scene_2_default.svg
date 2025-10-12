@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <!-- Dawn/sunrise atmosphere - new beginning -->
+  <defs>
+    <linearGradient id="skyGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:0.3" />
+      <stop offset="30%" style="stop-color:#f7931e;stop-opacity:0.5" />
+      <stop offset="60%" style="stop-color:#ffd460;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#2a1a4f;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="20%" cy="20%">
+      <stop offset="0%" style="stop-color:#ffeb3b;stop-opacity:0.6" />
+      <stop offset="30%" style="stop-color:#ff9800;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#2a1a4f;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient3)"/>
+  <circle cx="384" cy="216" r="700" fill="url(#sunGlow)"/>
+  
+  <!-- Sun -->
+  <circle cx="300" cy="200" r="80" fill="#ffeb3b" opacity="0.8"/>
+  <circle cx="300" cy="200" r="100" fill="#ff9800" opacity="0.3"/>
+  
+  <!-- Clouds with dawn colors -->
+  <ellipse cx="800" cy="300" rx="150" ry="50" fill="#ff6b35" opacity="0.2"/>
+  <ellipse cx="850" cy="320" rx="120" ry="40" fill="#f7931e" opacity="0.25"/>
+  <ellipse cx="1400" cy="250" rx="180" ry="60" fill="#ff6b35" opacity="0.2/>
+  <ellipse cx="1450" cy="280" rx="140" ry="45" fill="#ffd460" opacity="0.3"/>
+  
+  <!-- Distant city skyline -->
+  <path d="M 0,750 L 200,700 L 300,720 L 400,680 L 500,700 L 600,650 L 800,690 L 1000,660 L 1200,700 L 1400,680 L 1600,720 L 1800,690 L 1920,710 L 1920,1080 L 0,1080 Z" 
+        fill="#1a0f2e" opacity="0.7"/>
+  
+  <!-- Building details with warm lights -->
+  <rect x="250" y="720" width="40" height="60" fill="#ff9800" opacity="0.4"/>
+  <rect x="450" y="690" width="35" height="50" fill="#ffeb3b" opacity="0.3"/>
+  <rect x="650" y="660" width="45" height="70" fill="#ff9800" opacity="0.4"/>
+  <rect x="1050" y="670" width="40" height="60" fill="#ffd460" opacity="0.3"/>
+  <rect x="1450" y="690" width="38" height="55" fill="#ff9800" opacity="0.4/>
+  
+  <!-- Light rays -->
+  <path d="M 300,200 L 100,500 L 150,500 Z" fill="#ffeb3b" opacity="0.1"/>
+  <path d="M 300,200 L 400,600 L 450,600 Z" fill="#ff9800" opacity="0.1"/>
+  <path d="M 300,200 L 600,700 L 650,700 Z" fill="#ffd460" opacity="0.1"/>
+  
+  <!-- Foreground with hope glow -->
+  <ellipse cx="960" cy="1050" rx="900" ry="40" fill="#ff9800" opacity="0.15"/>
+  
+  <!-- Floating light particles - sense of renewal -->
+  <circle cx="600" cy="500" r="4" fill="#ffeb3b" opacity="0.7">
+    <animate attributeName="cy" values="500;400;500" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1200" cy="600" r="3" fill="#ffd460" opacity="0.6">
+    <animate attributeName="cy" values="600;500;600" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="900" cy="550" r="3.5" fill="#ff9800" opacity="0.8">
+    <animate attributeName="cy" values="550;450;550" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
+

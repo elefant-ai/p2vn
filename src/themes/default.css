@@ -1,0 +1,157 @@
+:root {
+  --font-size-base: 16px;
+  --font-size-button: 14px;
+  --button-padding: 12px 24px;
+  --button-border-width: 2px;
+  --button-hover-transform: translateY(-2px);
+  --button-active-transform: translateY(0);
+  --border-width: 2px;
+  --border-style: solid;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --button-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --button-shadow-active: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --input-border-width: 2px;
+  --input-padding: 12px 16px;
+
+  /* Menu Variables */
+  --menu-background: rgba(17, 24, 39, 0.95);
+  --menu-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --menu-blur: 10px;
+  --menu-item-padding: 10px 16px;
+  --menu-item-hover-bg: rgba(59, 130, 246, 0.1);
+  --menu-item-active-bg: rgba(59, 130, 246, 0.2);
+
+  /* Overlay Variables */
+  --overlay-background: rgba(0, 0, 0, 0.8);
+  --overlay-blur: 4px;
+
+  /* Hamburger Variables */
+  --hamburger-line-color: var(--color-text);
+  --hamburger-line-height: 2px;
+
+  /* Divider Variables */
+  --divider-opacity: 0.3;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+.vn-heading {
+  font-weight: 600;
+}
+
+.vn-text {
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.vn-box {
+  border-radius: 8px;
+  background: rgba(17, 24, 39, 0.8);
+}
+
+.vn-button {
+  border-radius: 6px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.vn-button:hover {
+  filter: brightness(1.1);
+}
+
+.vn-button:active {
+  filter: brightness(0.9);
+}
+
+.vn-input {
+  border-radius: 6px;
+}
+
+.vn-screen {
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #111827 0%, #1f2937 50%, #111827 100%);
+  background-size: 100% 100%;
+  background-position: 0 0;
+  /* position is controlled by component classes (fixed/relative) */
+}
+
+.vn-screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 99px,
+      rgba(59, 130, 246, 0.05) 99px,
+      rgba(59, 130, 246, 0.05) 100px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 99px,
+      rgba(139, 92, 246, 0.05) 99px,
+      rgba(139, 92, 246, 0.05) 100px
+    );
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Menu Styling */
+.vn-menu {
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.vn-menu-item {
+  font-weight: 500;
+  border-radius: 4px;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.vn-menu-item:hover {
+  transform: translateX(4px);
+}
+
+.vn-menu-item.active {
+  font-weight: 600;
+}
+
+.vn-divider {
+  border-radius: 1px;
+}
+
+.vn-hamburger-line {
+  border-radius: 2px;
+}
+
+.vn-overlay {
+  backdrop-filter: blur(4px);
+}
+
+/* Optional theme-specific classes (no-ops in default theme) */
+.neon-text {
+  /* No special effect in default theme */
+}
+
+.cyber-grid,
+.cyber-scanlines,
+.hologram,
+.terminal-cursor,
+.data-stream {
+  /* No special effects in default theme */
+}

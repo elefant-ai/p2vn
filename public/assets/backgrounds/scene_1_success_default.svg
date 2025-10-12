@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <!-- Deep blue-purple night atmosphere -->
+  <defs>
+    <linearGradient id="skyGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0f0524;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1f0a42;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow2" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#1a0a2e;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient2)"/>
+  <circle cx="960" cy="324" r="600" fill="url(#glow2)"/>
+  
+  <!-- Stars -->
+  <circle cx="200" cy="150" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="400" cy="100" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="800" cy="200" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1200" cy="120" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1600" cy="180" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="300" cy="300" r="1.5" fill="#ffffff" opacity="0.5"/>
+  <circle cx="1400" cy="250" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="1700" cy="90" r="2" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Glowing particles -->
+  <circle cx="500" cy="400" r="3" fill="#a78bfa" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1400" cy="500" r="2.5" fill="#818cf8" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="700" cy="600" r="2" fill="#c4b5fd" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Architectural silhouettes - mysterious buildings -->
+  <path d="M 0,800 L 0,1080 L 400,1080 L 400,850 L 500,750 L 600,850 L 600,1080 L 0,1080" 
+        fill="#0a0415" opacity="0.8"/>
+  <path d="M 1520,820 L 1520,1080 L 1920,1080 L 1920,700 L 1800,650 L 1700,750 L 1600,700 L 1520,820" 
+        fill="#0a0415" opacity="0.8"/>
+  
+  <!-- Glowing windows in buildings -->
+  <rect x="50" y="900" width="30" height="40" fill="#6366f1" opacity="0.6"/>
+  <rect x="100" y="920" width="30" height="40" fill="#818cf8" opacity="0.5"/>
+  <rect x="200" y="880" width="30" height="40" fill="#6366f1" opacity="0.7"/>
+  <rect x="1700" y="800" width="25" height="35" fill="#a78bfa" opacity="0.6"/>
+  <rect x="1750" y="850" width="25" height="35" fill="#818cf8" opacity="0.5"/>
+  
+  <!-- Ground with slight glow -->
+  <ellipse cx="960" cy="1050" rx="800" ry="30" fill="#6366f1" opacity="0.1"/>
+</svg>
+
