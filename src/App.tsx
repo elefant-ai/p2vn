@@ -80,9 +80,15 @@ export function App() {
 
   const handleChapterContinue = async () => {
     // Check authentication before entering gameplay
-    const hasValidKey = await player2Service.healthCheck();
+    const hasValidAuth = await player2Service.healthCheck();
 
-    if (!hasValidKey) {
+    if (!hasValidAuth) {
+      // If cookie auth failed and no API key, show modal
+      if (!player2Service.hasApiKey()) {
+        setShowApiKeyModal(true);
+        return;
+      }
+      // If we have API key but health check still failed, show modal to re-enter
       setShowApiKeyModal(true);
       return;
     }

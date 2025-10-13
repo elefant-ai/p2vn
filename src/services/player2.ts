@@ -8,6 +8,7 @@ const API_KEY_STORAGE_KEY = 'player2_api_key';
 
 class Player2Service {
   private apiKey: string | null = null;
+  private authMethod: 'cookie' | 'api_key' | null = null;
 
   constructor() {
     this.apiKey = localStorage.getItem(API_KEY_STORAGE_KEY);
@@ -40,30 +41,67 @@ class Player2Service {
    */
   clearApiKey(): void {
     this.apiKey = null;
+    this.authMethod = null;
     localStorage.removeItem(API_KEY_STORAGE_KEY);
   }
 
   /**
-   * Health check to validate API key
+   * Get current authentication method
+   */
+  getAuthMethod(): 'cookie' | 'api_key' | null {
+    return this.authMethod;
+  }
+
+  /**
+   * Check if authenticated (either via cookie or API key)
+   */
+  isAuthenticated(): boolean {
+    return this.authMethod !== null;
+  }
+
+  /**
+   * Health check to validate authentication
+   * First tries cookie-based auth, then falls back to API key if available
    */
   async healthCheck(): Promise<boolean> {
-    if (!this.apiKey) {
-      return false;
-    }
-
+    // First try cookie-based authentication
     try {
       const response = await fetch(`${API_BASE}/health`, {
         method: 'GET',
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-        },
+        credentials: 'include',
       });
 
-      return response.ok;
+      if (response.ok) {
+        this.authMethod = 'cookie';
+        return true;
+      }
     } catch (error) {
-      console.error('[Player2] Health check failed:', error);
-      return false;
+      console.warn('[Player2] Cookie auth failed:', error);
     }
+
+    // If cookie auth failed, try API key if available
+    if (this.apiKey) {
+      try {
+        const response = await fetch(`${API_BASE}/health`, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${this.apiKey}`,
+          },
+          credentials: 'include',
+        });
+
+        if (response.ok) {
+          this.authMethod = 'api_key';
+          return true;
+        }
+      } catch (error) {
+        console.error('[Player2] API key auth failed:', error);
+      }
+    }
+
+    // Reset auth method if both failed
+    this.authMethod = null;
+    return false;
   }
 
   /**
@@ -89,22 +127,30 @@ class Player2Service {
       };
     }>;
   }> {
-    if (!this.apiKey) {
-      throw new Error('API key not set');
+    if (!this.isAuthenticated()) {
+      throw new Error('Not authenticated');
+    }
+
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+
+    // Only include Authorization header if using API key auth
+    if (this.authMethod === 'api_key' && this.apiKey) {
+      headers.Authorization = `Bearer ${this.apiKey}`;
     }
 
     const response = await fetch(`${API_BASE}/chat/completions`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.apiKey}`,
-      },
+      headers,
       body: JSON.stringify(params),
+      credentials: 'include',
     });
 
     if (!response.ok) {
       if (response.status === 401) {
-        throw new Error('Invalid API key');
+        this.authMethod = null; // Reset auth on 401
+        throw new Error('Authentication failed');
       }
       throw new Error(`API request failed: ${response.statusText}`);
     }
