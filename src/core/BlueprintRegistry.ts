@@ -19,47 +19,81 @@ export class BlueprintRegistry {
   private currentLanguage: string = 'en_US';
   private availableLanguages: string[] = [];
 
+  private async fetchJson<T>(url: string, blueprintName: string): Promise<T> {
+    const response = await fetch(url);
+    try {
+      return await response.json();
+    } catch (error) {
+      throw new Error(`Failed to parse JSON for blueprint "${blueprintName}": ${error}`);
+    }
+  }
+
   async load(language?: string): Promise<void> {
-    const languagesResponse = await fetch(`${import.meta.env.BASE_URL}blueprints/languages.json`);
-    this.availableLanguages = await languagesResponse.json();
+    this.availableLanguages = await this.fetchJson<string[]>(
+      `${import.meta.env.BASE_URL}blueprints/languages.json`,
+      'languages.json'
+    );
 
     const targetLanguage = language || this.detectLanguage();
     this.currentLanguage = targetLanguage;
 
     const basePath = `${import.meta.env.BASE_URL}blueprints/${targetLanguage}`;
 
-    this.game = await fetch(`${import.meta.env.BASE_URL}blueprints/game.json`).then((r) =>
-      r.json()
+    this.game = await this.fetchJson<GameBlueprint>(
+      `${import.meta.env.BASE_URL}blueprints/game.json`,
+      'game.json'
     );
 
-    const charIds = await fetch(`${basePath}/characters/index.json`).then((r) => r.json());
+    const charIds = await this.fetchJson<string[]>(
+      `${basePath}/characters/index.json`,
+      'characters/index.json'
+    );
     for (const id of charIds) {
-      const char = await fetch(`${basePath}/characters/${id}.json`).then((r) => r.json());
+      const char = await this.fetchJson<CharacterBlueprint>(
+        `${basePath}/characters/${id}.json`,
+        `characters/${id}.json`
+      );
       this.characters.set(id, char);
     }
 
-    const sceneIds = await fetch(`${basePath}/scenes/index.json`).then((r) => r.json());
+    const sceneIds = await this.fetchJson<string[]>(
+      `${basePath}/scenes/index.json`,
+      'scenes/index.json'
+    );
     for (const id of sceneIds) {
-      const scene = await fetch(`${basePath}/scenes/${id}.json`).then((r) => r.json());
+      const scene = await this.fetchJson<SceneBlueprint>(
+        `${basePath}/scenes/${id}.json`,
+        `scenes/${id}.json`
+      );
       this.scenes.set(id, scene);
     }
 
-    const chapters = await fetch(`${basePath}/chapters.json`).then((r) => r.json());
+    const chapters = await this.fetchJson<ChapterBlueprint[]>(
+      `${basePath}/chapters.json`,
+      'chapters.json'
+    );
     chapters.forEach((ch: ChapterBlueprint) => this.chapters.set(ch.id, ch));
 
-    const routes = await fetch(`${basePath}/routes.json`).then((r) => r.json());
+    const routes = await this.fetchJson<RouteBlueprint[]>(`${basePath}/routes.json`, 'routes.json');
     routes.forEach((rt: RouteBlueprint) => this.routes.set(rt.id, rt));
 
-    const itemIds = await fetch(`${basePath}/items/index.json`).then((r) => r.json());
+    const itemIds = await this.fetchJson<string[]>(
+      `${basePath}/items/index.json`,
+      'items/index.json'
+    );
     for (const id of itemIds) {
-      const item = await fetch(`${basePath}/items/${id}.json`).then((r) => r.json());
+      const item = await this.fetchJson<ItemBlueprint>(
+        `${basePath}/items/${id}.json`,
+        `items/${id}.json`
+      );
       this.items.set(id, item);
     }
 
     // Load theme (themes are language-agnostic)
     if (this.game && this.themes.size === 0) {
-      const theme = await fetch(`${import.meta.env.BASE_URL}themes/${this.game.theme}.json`).then(
-        (r) => r.json()
+      const theme = await this.fetchJson<ThemeBlueprint>(
+        `${import.meta.env.BASE_URL}themes/${this.game.theme}.json`,
+        `themes/${this.game.theme}.json`
       );
       this.themes.set(theme.id, theme);
     }
