@@ -11,7 +11,8 @@ class Player2Service {
   private authMethod: 'cookie' | 'api_key' | null = null;
 
   constructor() {
-    this.apiKey = localStorage.getItem(API_KEY_STORAGE_KEY);
+    this.apiKey =
+      localStorage.getItem(API_KEY_STORAGE_KEY) || import.meta.env.VITE_PLAYER2_API_KEY || null;
   }
 
   /**
