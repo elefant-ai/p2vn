@@ -7,6 +7,7 @@ import {
   ThemeBlueprint,
   GameBlueprint,
 } from '../types/blueprints';
+import { resolveAssetPath } from '../utils/assetPath';
 
 export class BlueprintRegistry {
   private characters = new Map<string, CharacterBlueprint>();
@@ -28,6 +29,71 @@ export class BlueprintRegistry {
     }
   }
 
+  private transformCharacterBlueprint(char: CharacterBlueprint): CharacterBlueprint {
+    return {
+      ...char,
+      view: Object.entries(char.view).reduce(
+        (acc, [key, view]) => ({
+          ...acc,
+          [key]: {
+            ...view,
+            uri: resolveAssetPath(view.uri),
+          },
+        }),
+        {} as CharacterBlueprint['view']
+      ),
+      inventory: char.inventory.map((item) => ({
+        ...item,
+        image: {
+          ...item.image,
+          uri: resolveAssetPath(item.image.uri),
+        },
+      })),
+    };
+  }
+
+  private transformSceneBlueprint(scene: SceneBlueprint): SceneBlueprint {
+    return {
+      ...scene,
+      view: Object.entries(scene.view).reduce(
+        (acc, [key, view]) => ({
+          ...acc,
+          [key]: {
+            ...view,
+            uri: resolveAssetPath(view.uri),
+          },
+        }),
+        {} as SceneBlueprint['view']
+      ),
+    };
+  }
+
+  private transformItemBlueprint(item: ItemBlueprint): ItemBlueprint {
+    return {
+      ...item,
+      image: {
+        ...item.image,
+        uri: resolveAssetPath(item.image.uri),
+      },
+    };
+  }
+
+  private transformGameBlueprint(game: GameBlueprint): GameBlueprint {
+    return {
+      ...game,
+      main_menu_image: game.main_menu_image
+        ? {
+            ...game.main_menu_image,
+            uri: resolveAssetPath(game.main_menu_image.uri),
+          }
+        : undefined,
+    };
+  }
+
+  private transformThemeBlueprint(theme: ThemeBlueprint): ThemeBlueprint {
+    return theme;
+  }
+
   async load(language?: string): Promise<void> {
     this.availableLanguages = await this.fetchJson<string[]>(
       `${import.meta.env.BASE_URL}blueprints/languages.json`,
@@ -39,21 +105,22 @@ export class BlueprintRegistry {
 
     const basePath = `${import.meta.env.BASE_URL}blueprints/${targetLanguage}`;
 
-    this.game = await this.fetchJson<GameBlueprint>(
+    const gameBp = await this.fetchJson<GameBlueprint>(
       `${import.meta.env.BASE_URL}blueprints/game.json`,
       'game.json'
     );
+    this.game = this.transformGameBlueprint(gameBp);
 
     const charIds = await this.fetchJson<string[]>(
       `${basePath}/characters/index.json`,
       'characters/index.json'
     );
     for (const id of charIds) {
-      const char = await this.fetchJson<CharacterBlueprint>(
+      const charBp = await this.fetchJson<CharacterBlueprint>(
         `${basePath}/characters/${id}.json`,
         `characters/${id}.json`
       );
-      this.characters.set(id, char);
+      this.characters.set(id, this.transformCharacterBlueprint(charBp));
     }
 
     const sceneIds = await this.fetchJson<string[]>(
@@ -61,11 +128,11 @@ export class BlueprintRegistry {
       'scenes/index.json'
     );
     for (const id of sceneIds) {
-      const scene = await this.fetchJson<SceneBlueprint>(
+      const sceneBp = await this.fetchJson<SceneBlueprint>(
         `${basePath}/scenes/${id}.json`,
         `scenes/${id}.json`
       );
-      this.scenes.set(id, scene);
+      this.scenes.set(id, this.transformSceneBlueprint(sceneBp));
     }
 
     const chapters = await this.fetchJson<ChapterBlueprint[]>(
@@ -82,20 +149,19 @@ export class BlueprintRegistry {
       'items/index.json'
     );
     for (const id of itemIds) {
-      const item = await this.fetchJson<ItemBlueprint>(
+      const itemBp = await this.fetchJson<ItemBlueprint>(
         `${basePath}/items/${id}.json`,
         `items/${id}.json`
       );
-      this.items.set(id, item);
+      this.items.set(id, this.transformItemBlueprint(itemBp));
     }
 
-    // Load theme (themes are language-agnostic)
     if (this.game && this.themes.size === 0) {
-      const theme = await this.fetchJson<ThemeBlueprint>(
+      const themeBp = await this.fetchJson<ThemeBlueprint>(
         `${import.meta.env.BASE_URL}themes/${this.game.theme}.json`,
         `themes/${this.game.theme}.json`
       );
-      this.themes.set(theme.id, theme);
+      this.themes.set(themeBp.id, this.transformThemeBlueprint(themeBp));
     }
   }
 
