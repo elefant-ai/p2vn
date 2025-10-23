@@ -21,10 +21,11 @@ export function App() {
   const [apiKeyError, setApiKeyError] = useState<string | null>(null);
   const gameStore = useGameStore();
 
-  // Load game data on mount (no auth check yet)
+  // Load game data on mount and initialize player2Service
   useEffect(() => {
     async function init() {
       await registry.load();
+      await player2Service.initialize();
       setLoaded(true);
       const game = registry.getGame();
       const startRoute = game.starting_route;

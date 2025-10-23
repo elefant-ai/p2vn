@@ -3,16 +3,60 @@
  * Manages authentication and API requests to Player2.gg
  */
 
-const API_BASE = 'https://api.player2.game/v1';
+const DEFAULT_API_ENDPOINT = 'https://api.player2.game/v1';
+const API_BASE = import.meta.env.VITE_PLAYER2_ENDPOINT?.trim() || DEFAULT_API_ENDPOINT;
 const API_KEY_STORAGE_KEY = 'player2_api_key';
 
 class Player2Service {
   private apiKey: string | null = null;
   private authMethod: 'cookie' | 'api_key' | null = null;
+  private initialized: boolean = false;
+  private initPromise: Promise<void> | null = null;
 
   constructor() {
-    this.apiKey =
-      localStorage.getItem(API_KEY_STORAGE_KEY) || import.meta.env.VITE_PLAYER2_API_KEY || null;
+    this.loadInitialKey();
+  }
+
+  private loadInitialKey(): void {
+    const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
+    const trimmedStoredKey = storedKey?.trim() || '';
+
+    if (trimmedStoredKey) {
+      this.apiKey = trimmedStoredKey;
+    } else {
+      const envKey = import.meta.env.VITE_PLAYER2_API_KEY?.trim() || '';
+      this.apiKey = envKey || null;
+    }
+  }
+
+  async initialize(): Promise<void> {
+    if (this.initialized) {
+      return;
+    }
+
+    if (this.initPromise) {
+      return this.initPromise;
+    }
+
+    this.initPromise = this.validateAndSetupKey();
+    await this.initPromise;
+    this.initialized = true;
+  }
+
+  private async validateAndSetupKey(): Promise<void> {
+    if (!this.apiKey) {
+      return;
+    }
+
+    const isValid = await this.healthCheck();
+    if (!isValid) {
+      this.apiKey = null;
+      this.authMethod = null;
+    }
+  }
+
+  isInitialized(): boolean {
+    return this.initialized;
   }
 
   /**
@@ -33,8 +77,13 @@ class Player2Service {
    * Set API key and save to localStorage
    */
   setApiKey(key: string): void {
-    this.apiKey = key;
-    localStorage.setItem(API_KEY_STORAGE_KEY, key);
+    const trimmedKey = key.trim();
+    this.apiKey = trimmedKey || null;
+    if (trimmedKey) {
+      localStorage.setItem(API_KEY_STORAGE_KEY, trimmedKey);
+    } else {
+      localStorage.removeItem(API_KEY_STORAGE_KEY);
+    }
   }
 
   /**
